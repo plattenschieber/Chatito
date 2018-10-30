@@ -251,7 +251,7 @@ export const datasetFromAST = async (ast: IChatitoEntityAST[], writterFn: IUtter
                 // note: trick to make all combinations for small datasets, but avoid them for large ones
                 const maxDupes = maxPossibleCombinations * maxPossibleCombinations;
                 const maxDupesLimit = Math.floor(maxPossibleCombinations / 2);
-                if (duplicatesCounter > (maxPossibleCombinations > 10000 ? maxDupesLimit : maxDupes)) {
+                if (duplicatesCounter > (maxPossibleCombinations > 1000000 ? maxDupesLimit : maxDupes)) {
                     // prevent cases where duplicates are part of the entity definitions
                     let m = `Too many duplicates while generating dataset! Looks like we have probably reached `;
                     m += `the maximun ammount of possible unique generated examples. `;
